@@ -49,6 +49,8 @@ public:
 
     void sort_list(bool ascending);
 
+    double operator[](size_t index);
+
     iterator begin();
     iterator end();
 

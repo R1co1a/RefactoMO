@@ -119,6 +119,10 @@ values_list::iterator& values_list::iterator::operator++() {
     return *this;
 }
 
+double values_list::operator[](size_t index) const {
+    return get_value(index);
+}
+
 void data_list::from_text(const std::string &source) {
     _values.clear();
     ifstream f{source};
