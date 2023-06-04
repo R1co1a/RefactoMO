@@ -27,6 +27,14 @@ class values_list {
     list_element *_head;
     list_element *_tail;
 
+    class iterator {
+        private:
+            list_element *current_element;
+        public:
+            iterator(list_element* element) : current_element(element) {}
+            iterator& operator++();
+    };
+
 public:
     values_list(): _head(nullptr), _tail(nullptr) {}
     values_list(const values_list &other);
@@ -40,6 +48,10 @@ public:
     double get_value(size_t position)const;
 
     void sort_list(bool ascending);
+
+    iterator begin();
+    iterator end();
+
 };
 
 class data_list {
