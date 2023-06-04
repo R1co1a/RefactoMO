@@ -106,16 +106,16 @@ void values_list::sort_list(bool ascending) { // Naive sort
     }
 }
 
-iterator values_list::begin() {
+values_list::iterator values_list::begin() {
     return iterator(_head);
 }
 
-iterator values_list::end() {
+values_list::iterator values_list::end() {
     return iterator(nullptr);
 }
 
 values_list::iterator& values_list::iterator::operator++() {
-    current_element = current_element->get_next();
+    current_element = current_element->get_next();  
     return *this;
 }
 

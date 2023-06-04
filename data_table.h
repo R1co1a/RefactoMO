@@ -3,8 +3,9 @@
 
 #include <vector>
 #include <string>
+#include "dependencies.h"
 
-class data_table {
+class data_table{
     std::vector<double> _table;
 
 public:

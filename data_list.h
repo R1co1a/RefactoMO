@@ -2,8 +2,9 @@
 #define DATA_LIST_H
 
 
-#include <vector>
+
 #include <string>
+#include "dependencies.h"
 
 class list_element {
     double _value;
@@ -49,14 +50,14 @@ public:
 
     void sort_list(bool ascending);
 
-    double operator[](size_t index);
+    double operator[](size_t index)const;
 
     iterator begin();
     iterator end();
 
 };
 
-class data_list {
+class data_list{
     values_list _values;
 public:
     data_list();
