@@ -1,5 +1,5 @@
-#include "resource_manager.h"
-#include "process.h"
+#include "./factory/resource_manager.h"
+#include "./utils/process.h"
 
 int main() {
 
@@ -9,8 +9,8 @@ int main() {
                     manager.make_loader("BIN"), 
                     manager.make_calculation("AVG"), 
                     manager.make_writer("TEXT")};
-    process.execute("Test");
-
+    process.execute("../input/binary.bin");
+    
     manager.clear_resources();
     
     return 0;

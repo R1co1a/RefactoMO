@@ -8,7 +8,7 @@ process::process(storage_type* storage, loader* loader, calculation* calculation
 void process::execute(const std::string& filePath) {
     if (_storage && _loader && _calculation && _writer) {
         *_storage = _loader->load(filePath);
-        _calculation->compute(*_storage);
+        //_calculation->compute(*_storage);
         _writer->write(*_storage);
     } else {
         std::cout << "Missing required objects for execution!" << std::endl;

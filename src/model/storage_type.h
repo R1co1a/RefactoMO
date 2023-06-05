@@ -1,9 +1,14 @@
+#ifndef STORAGE_TYPE_H
+#define STORAGE_TYPE_H
+
 #include <list>
 #include <vector>
+#include <cstddef>
+
+#include "../utils/linked_list.h"
 
 class storage_type {
     public:
-        virtual ~storage_type();
         virtual void push_back(double value);
         virtual void clear_list();
         virtual double get_value(size_t index) const;
@@ -12,8 +17,9 @@ class storage_type {
 
 class list_storage : public storage_type {
     private:
-        std::list<double> data;
+        linked_list _data;
     public:
+
         void push_back(double value)override;
         void clear_list()override;
         double get_value(size_t index) const override;
@@ -22,10 +28,14 @@ class list_storage : public storage_type {
 
 class vector_storage : public storage_type{
     private:
-        std::vector<double> data;
+        std::vector<double> _data;
     public:
         void push_back(double value)override;
         void clear_list()override;
         double get_value(size_t index) const override;
         size_t size() const override;
 };
+
+#endif //STORAGE_TYPE_H
+
+

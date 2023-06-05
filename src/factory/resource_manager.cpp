@@ -1,5 +1,5 @@
 #include "resource_manager.h"
-#include "storage_type.h"
+#include "../model/storage_type.h"
 
 resource_manager::resource_manager(){};
 

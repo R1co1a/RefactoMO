@@ -4,7 +4,6 @@
 
 
 #include <string>
-#include "dependencies.h"
 
 class list_element {
     double _value;

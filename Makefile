@@ -1,13 +1,26 @@
-ALL=mo53
-CXX=g++
-CXXFLAGS=-std=c++14
+CC = g++
+CFLAGS = -std=c++11 -Wall
+LDFLAGS =
 
-mo53: main.cpp data_list.o data_table.o
-	$(CXX) $(CXXFLAGS) -o mo53 main.cpp data_list.o data_table.o
+TARGET = bin/myprogram
+SRCDIR = src
+OBJDIR = obj
 
-%.o: %.cpp %.h
-	$(CXX) $(CXXFLAGS) $< -c -o $@
+SOURCES := $(wildcard $(SRCDIR)/**/*.cpp)
+OBJECTS := $(patsubst $(SRCDIR)/%.cpp,$(OBJDIR)/%.o,$(SOURCES))
+VPATH := $(sort $(dir $(SOURCES)))
+
+all: directories $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	$(CC) $(LDFLAGS) $^ -o $@
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+directories:
+	if not exist $(OBJDIR) mkdir $(OBJDIR)
+	for %%i in ($(OBJECTS)) do if not exist %%~dpi mkdir %%~dpi
 
 clean:
-	rm -f *.o
-	rm -f mo53
+	rm -rf $(OBJDIR) $(TARGET)

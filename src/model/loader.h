@@ -1,10 +1,11 @@
+#ifndef LOADER_H
+#define LOADER_H
 #include <string>
 
 #include "storage_type.h"
 
 class loader {
     public:
-        virtual ~loader();
         virtual storage_type load(const std::string& filePath);
 };
 
@@ -17,3 +18,5 @@ class binary_loader : public loader {
     public:
         storage_type load (const std::string& filePath) override;
 };
+
+#endif //LOADER_H

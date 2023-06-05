@@ -4,10 +4,10 @@
 #include <iostream>
 #include <unordered_map>
 
-#include "storage_type.h"
-#include "loader.h"
-#include "calculation.h"
-#include "writer.h"
+#include "../model/storage_type.h"
+#include "../model/loader.h"
+#include "../model/calculation.h"
+#include "../model/writer.h"
 
 class resource_manager {
     
@@ -18,10 +18,6 @@ class resource_manager {
         std::unordered_map<std::string, writer*> writerMap;
 
     public : 
-        resource_manager();
-
-        ~resource_manager();
-
         storage_type* make_storage(const std::string& type);
         loader* make_loader(const std::string& type);
         calculation* make_calculation(const std::string& type);
