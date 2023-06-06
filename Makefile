@@ -1,26 +1,28 @@
-CC = g++
-CFLAGS = -std=c++11 -Wall
-LDFLAGS =
 
-TARGET = bin/myprogram
-SRCDIR = src
-OBJDIR = obj
+mo53 : main.o calculation.o linked_list.o loader.o process.o resource_manager.o storage_type.o writer.o
+	g++ -o mo53 main.o calculation.o linked_list.o loader.o process.o resource_manager.o storage_type.o writer.o
 
-SOURCES := $(wildcard $(SRCDIR)/**/*.cpp)
-OBJECTS := $(patsubst $(SRCDIR)/%.cpp,$(OBJDIR)/%.o,$(SOURCES))
-VPATH := $(sort $(dir $(SOURCES)))
+main.o : main.cpp resource_manager.cpp process.cpp
+	g++ -o main.o -cpp main.cpp resource_manager.cpp process.cpp
 
-all: directories $(TARGET)
+calculation.o : calculation.cpp
+	g++ -o calculation.o -cpp calculation.cpp
 
-$(TARGET): $(OBJECTS)
-	$(CC) $(LDFLAGS) $^ -o $@
+linked_list.o : linked_list.cpp
+	g++ -o linked_list.o -cpp linked_list.cpp
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+loader.o : loader.cpp
+	g++ -o loader.o -cpp loader.cpp
 
-directories:
-	if not exist $(OBJDIR) mkdir $(OBJDIR)
-	for %%i in ($(OBJECTS)) do if not exist %%~dpi mkdir %%~dpi
+process.o : process.cpp
+	g++ -o process.o -cpp process.cpp
 
-clean:
-	rm -rf $(OBJDIR) $(TARGET)
+resource_manager.o : resource_manager.cpp
+	g++ -o resource_manager.o -cpp resource_manager.cpp
+
+storage_type.o : storage_type.cpp
+	g++ -o storage_type.o -cpp storage_type.cpp
+
+writer.o : writer.cpp
+	g++ -o writer.o -cpp writer.cpp
+

@@ -5,7 +5,7 @@
 #include <vector>
 #include <cstddef>
 
-#include "../utils/linked_list.h"
+#include "linked_list.h"
 
 class storage_type {
     public:
@@ -19,7 +19,8 @@ class list_storage : public storage_type {
     private:
         linked_list _data;
     public:
-
+        list_storage(){};
+        ~list_storage(){};
         void push_back(double value)override;
         void clear_list()override;
         double get_value(size_t index) const override;
@@ -30,6 +31,8 @@ class vector_storage : public storage_type{
     private:
         std::vector<double> _data;
     public:
+        vector_storage(){};
+        ~vector_storage(){};
         void push_back(double value)override;
         void clear_list()override;
         double get_value(size_t index) const override;

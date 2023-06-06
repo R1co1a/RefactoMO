@@ -4,10 +4,10 @@
 #include <iostream>
 #include <unordered_map>
 
-#include "../model/storage_type.h"
-#include "../model/loader.h"
-#include "../model/calculation.h"
-#include "../model/writer.h"
+#include "storage_type.h"
+#include "loader.h"
+#include "calculation.h"
+#include "writer.h"
 
 
 class process {

@@ -1,8 +1,8 @@
-#include "./factory/resource_manager.h"
-#include "./utils/process.h"
+#include "resource_manager.h"
+#include "process.h"
 
 int main() {
-
+    
     resource_manager manager{};
 
     process process{manager.make_storage("LIST"),

@@ -4,17 +4,21 @@
 #include "storage_type.h"
 
 class writer {
-    public: 
+    public:
         virtual void write(const storage_type& storage);
 };
 
 class text_writer : public writer {
     public: 
+        text_writer();
+        ~text_writer();
         void write(const storage_type& storage);
 };
 
 class binary_writer : public writer {
     public: 
+        binary_writer();
+        ~binary_writer();
         void write(const storage_type& storage);
 };
 

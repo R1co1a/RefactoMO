@@ -1,5 +1,5 @@
 #include "resource_manager.h"
-#include "../model/storage_type.h"
+#include "storage_type.h"
 
 resource_manager::resource_manager(){};
 
@@ -17,9 +17,9 @@ storage_type* resource_manager::make_storage(const std::string& type){
     storage_type* storage = nullptr;
 
     if (type == "LIST") {
-        storage = new list_storage();
+        //storage = new list_storage();
     } else if (type == "VECTOR" ) {
-        storage = new vector_storage();
+        //storage = new vector_storage();
     } else {
         std::cout << "Unknown storage type: " << type << std::endl;
     }
@@ -40,9 +40,9 @@ loader* resource_manager::make_loader(const std::string& type){
 
     loader* loader = nullptr;
     if (type == "BIN") {
-        loader = new binary_loader();
+        //loader = new binary_loader();
     } else if (type == "TEXT") {
-        loader = new text_loader();
+        //loader = new text_loader();
     } else {
         std::cout << "Unknown loader type: " << type << std::endl;
     }
@@ -64,9 +64,9 @@ calculation* resource_manager::make_calculation(const std::string& type){
     
     calculation* calculation = nullptr;
     if (type == "AVG") {
-        calculation = new average_calculation();
+        //calculation = new average_calculation();
     } else if (type == "ROLL") {
-        calculation = new rolling_average_calculation();
+        //calculation = new rolling_average_calculation();
     } else {
         std::cout << "Unknown calculation type: " << type << std::endl;
     }
@@ -88,9 +88,9 @@ writer* resource_manager::make_writer(const std::string& type) {
 
     writer* writer = nullptr;
     if (type == "BIN") {
-        writer = new binary_writer();
+        //writer = new binary_writer();
     } else if (type == "TEXT") {
-        writer = new text_writer();
+        //writer = new text_writer();
     } else {
         std::cout << "Unknown writer type: " << type << std::endl;
     }

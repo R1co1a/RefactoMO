@@ -5,6 +5,9 @@
 
 const std::string OUTPUT = "test";
 
+text_writer::text_writer(){}
+binary_writer::binary_writer(){}
+
 void text_writer::write(const storage_type& storage){
     std::ofstream file{OUTPUT + ".txt"};
     if (file.is_open()){
